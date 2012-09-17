@@ -1,8 +1,14 @@
 AlbumCollection::Application.routes.draw do
 
+  get "static/home"
+
+  get "static/help"
+
+  get "static/about"
+
   devise_for :users
 
-  root :to => "home#index"
+  root :to => "static#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
