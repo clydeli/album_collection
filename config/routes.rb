@@ -1,9 +1,13 @@
 AlbumCollection::Application.routes.draw do
 
+  get "collection/show"
+
+  get "collection/edit"
+
+  get "collection/data"
+
   get "static/home"
-
   get "static/help"
-
   get "static/about"
 
   devise_for :users
