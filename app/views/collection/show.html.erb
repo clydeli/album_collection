@@ -1,2 +1,27 @@
-<h1>Collection#show</h1>
-<p>Find me in app/views/collection/show.html.erb</p>
+<% provide(:title, @user.username) %>
+
+<h2><%= full_title(yield(:title)) %></h2>
+<hr>
+<% if @user_collection.empty? %>
+No albums yet on the shelf.
+<% end %>
+
+<ul id="user_shelf">
+  <% @user_collection.each do |album| %>
+  <a href="album/<%= album.id %>">
+    <li class="album_li">
+      <img src="<%= album.img_url %>">
+      <div class="album_wrap">
+        <b><%= album.artist %></b><br>
+        <%= album.album_name %>
+      </div>
+    </li>
+  </a>
+  <% end %>
+</ul>
+
+<% if user_signed_in? && current_user.username == @user.username%>
+    <b><%= link_to "Manage", collection_edit_path %></b>
+<% elsif %>
+    contact <b><%= @user.username %></b> at <%= link_to @user.email, "mailto:"+@user.email %></b>
+<% end %>

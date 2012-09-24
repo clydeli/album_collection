@@ -1,5 +1,16 @@
 // Place all the styles related to the Static controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* p {display: none; } */
+#home_page_hs h1 {
+  font-weight: 700;
+  font-size: 96px;
+  text-shadow: 2px 3px #444;
+  margin-bottom: 0px;
+}
+
+#home_page_hs h3 {
+  margin-top: 0px;
+}
+
+#home_img { width: 160px; height: 160px; border: 1px #222; border-radius: 4px;}

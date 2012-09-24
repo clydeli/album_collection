@@ -1,0 +1,25 @@
+<% provide(:title, @album.album_name) %>
+
+<h2><%= full_title(yield(:title)) %></h2>
+<hr>
+
+
+<input type="hidden" id="album_page_mbid" value="<%= @album.mbid %>">
+
+<img id="album_page_img" src="<%= @album.img_url %>">
+<br>
+<% if !@album_listeners.empty? %>
+    <b>
+      <div id="#album_page_ran_shl">
+        Random SHELV:
+        <% @album_listeners.each do |user| %>
+            <%= link_to user.username, '/'+user.username %>
+        <% end %>
+      </div>
+    </b>
+<% end %>
+
+<div id="album_info_div">
+<h4>Artist: <%= @album.artist %></h4>
+<h4>Album Name: <%= @album.album_name %></h4>
+</div>

@@ -1,2 +1,35 @@
-<h1>Collection#edit</h1>
-<p>Find me in app/views/collection/edit.html.erb</p>
+<% provide(:title, 'Manage') %>
+
+<h2><%= full_title(yield(:title)) %></h2>
+<hr>
+<h3>Add a new Album</h3>
+<b>Artist:</b> <input type="text" id="artist_search_text">
+or <b>Album:</b> <input type="text" id="album_search_text">
+<select id="edit_limit">
+  <option value="5">5 Results</option>
+  <option value="10">10 Results</option>
+  <option value="15">15 Results</option>
+  <option value="25">25 Results</option>
+  <option value="50">50 Results</option>
+</select>
+<button id="edit_search_btn">Search</button>
+
+<ul id="search_results"></ul>
+
+<hr>
+<h3> my SHELV </h3>
+<ul id="user_shelf">
+  <% @user_collection.each do |album| %>
+      <li class="album_li">
+        <img src="<%= album.img_url %>">
+        <div class="album_wrap">
+          <b><%= album.artist %></b><br>
+          <%= album.album_name %>
+          <input type="hidden" class="hid_mbid" value="<%= album.mbid %>">
+          <a href="#" class="del_album">-</a>
+        </div>
+      </li>
+  <% end %>
+</ul>
+
+<b><%= link_to "Back", '/'+current_user.username %></b>

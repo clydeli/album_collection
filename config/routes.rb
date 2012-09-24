@@ -1,18 +1,25 @@
 AlbumCollection::Application.routes.draw do
 
-  get "collection/show"
+  #get "album/show"
+  #get "album/create"
+  #get "album/destroy"
 
-  get "collection/edit"
-
-  get "collection/data"
-
-  get "static/home"
-  get "static/help"
-  get "static/about"
+  #get "collection/show"
+  #get "collection/edit"
 
   devise_for :users
 
   root :to => "static#home"
+  match "/help" => "static#help"
+  match "/about" => "static#about"
+
+  match "/:username" =>  "collection#show", :via => "get"
+  match "/collection/edit" =>  "collection#edit", :via => "get"
+
+  match "/album/:album_id" =>  "album#show", :via => "get"
+  match "/album/create" =>  "album#create", :via => "post"
+  match "/album/destroy" =>  "album#destroy", :via => "delete"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

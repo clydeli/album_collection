@@ -3,7 +3,7 @@ class CreateAlbums < ActiveRecord::Migration
     create_table(:albums) do |t|
       t.string :artist,                   :null => false, :default => ""
       t.string :album_name,               :null => false, :default => ""
-      t.string :image_url,                :null => false, :default => ""
+      t.string :img_url,                  :null => false, :default => ""
       t.string :mbid,                     :null => false, :default => ""
       t.timestamps
     end

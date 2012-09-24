@@ -1,2 +1,24 @@
-<h1>Static#home</h1>
-<p>Find me in app/views/static/home.html.erb</p>
+<% provide(:title, 'Home') %>
+
+<div id="home_page_hs">
+  <h1>SHELV</h1>
+  <h3>Your Online Album Collection</h3>
+</div>
+
+<% if @random_album != nil %>
+  <b><% @ra_group = @random_album.users %>
+  <% if !@ra_group.empty? %>
+  <% @ra_user = @ra_group.first(:order => "RANDOM()").username %>
+  on SHELV | <%= link_to @ra_user, '/'+@ra_user %></b><br>
+  <% end  %>
+  <a href="album/<%= @random_album.id %>">
+  <img id="home_img" src="<%= @random_album.img_url %>"></a><br>
+  <b><%= @random_album.artist %> - <%= @random_album.album_name %></b><br>
+<% end %>
+
+<br><br>
+<% if user_signed_in? %>
+    <b> Go to <%= link_to "my SHELV", '/'+current_user.username, :method => :get %> </b>
+<% else %>
+    <b><%= link_to "Sign Up", new_user_registration_path %> Now !</b>
+<% end %>

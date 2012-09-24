@@ -1,0 +1,11 @@
+// Place all the styles related to the album controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#album_page_img {
+  width: 300px; height: 300px; display:inline;
+  margin-top: 16px; border: 1px #222; border-radius: 5px;
+  box-shadow: 2px 2px 3px 1px #333;
+}
+#album_info_div h4 { margin: 6px 8px; }
+#album_info_div li { list-style: none; display: inline; margin: 2px 6px;}
