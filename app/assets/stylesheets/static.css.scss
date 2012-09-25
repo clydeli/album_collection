@@ -13,4 +13,8 @@
   margin-top: 0px;
 }
 
-#home_img { width: 160px; height: 160px; border: 1px #222; border-radius: 4px;}
+#home_img {
+  width: 160px; height: 160px;
+  border: 1px #222; border-radius: 4px;
+  box-shadow: 1px 2px 3px 1px #444;
+}
