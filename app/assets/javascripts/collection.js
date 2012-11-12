@@ -103,9 +103,14 @@ $('#search_results').on("click", ".album_li .album_wrap a", function(){
             });
             if(!is_duplicate){
                 //console.log($(current_li).clone());
-                $('#user_shelf .album_li').first().before($(current_li).clone().hide());
-                $('#user_shelf .album_li .album_wrap a').first().html('-');
-                $('#user_shelf .album_li').first().fadeIn();
+                if($('#user_shelf .album_li').length > 0){
+                    $('#user_shelf .album_li').first().before($(current_li).clone().hide());
+                    $('#user_shelf .album_li .album_wrap a').first().html('-');
+                    $('#user_shelf .album_li').first().fadeIn();
+                } else{
+                    $('#user_shelf').append($(current_li).clone().hide());
+                    $('#user_shelf .album_li').first().fadeIn();
+                }
             }
         }
     });
