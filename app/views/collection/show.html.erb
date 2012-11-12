@@ -20,8 +20,10 @@ No albums yet on the shelf.
   <% end %>
 </ul>
 
+<footer>
 <% if user_signed_in? && current_user.username == @user.username%>
     <b><%= link_to "Manage", collection_edit_path %></b>
-<% elsif %>
+<% else %>
     contact <b><%= @user.username %></b> at <%= link_to @user.email, "mailto:"+@user.email %></b>
 <% end %>
+</footer>

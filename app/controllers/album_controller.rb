@@ -1,3 +1,4 @@
+
 class AlbumController < ApplicationController
   def show
     @album = Album.find_by_id(params[:album_id])
@@ -6,8 +7,10 @@ class AlbumController < ApplicationController
 
   def create
     authenticate_user!
+    logger.debug(params[:album]);
     if (Album.find_all_by_mbid(params[:mbid]).count == 0)
       current_user.albums.create(artist: params[:artist], album_name: params[:album], img_url: params[:img_url], mbid: params[:mbid])
+
     elsif (current_user.albums.find_all_by_mbid(params[:mbid]).count == 0)
       current_user.albums << Album.find_by_mbid(params[:mbid])
     end

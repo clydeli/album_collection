@@ -13,8 +13,8 @@ var submit_edit_query = function(){
                     var album_html = "<li class='album_li'>";
                     album_html += "<img src="+this.image[2]['#text']+"><div class='album_wrap'>";
                     album_html += "<b>"+this.artist+"</b><br>"+this.name+"";
-                    album_html += "<input type='hidden' class='hid_artist' value='"+this.artist+"' />"
-                    album_html += "<input type='hidden' class='hid_album' value='"+this.name+"' />"
+                    album_html += '<input type="hidden" class="hid_artist" value="'+this.artist+'" />'
+                    album_html += '<input type="hidden" class="hid_album" value="'+this.name+'" />'
                     album_html += "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"
                     album_html += "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"
                     album_html += "<a href='#'>+</a>";
@@ -35,8 +35,8 @@ var submit_edit_query = function(){
                     var album_html = "<li class='album_li'>";
                     album_html += "<img src="+this.image[2]['#text']+"><div class='album_wrap'>";
                     album_html += "<b>"+this.artist.name+"</b><br>"+this.name+"";
-                    album_html += "<input type='hidden' class='hid_artist' value='"+this.artist.name+"' />"
-                    album_html += "<input type='hidden' class='hid_album' value='"+this.name+"' />"
+                    album_html += '<input type="hidden" class="hid_artist" value="'+this.artist.name+'" />'
+                    album_html += '<input type="hidden" class="hid_album" value="'+this.name+'" />'
                     album_html += "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"
                     album_html += "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"
                     album_html += "<a href='#'>+</a>";
@@ -57,8 +57,8 @@ var submit_edit_query = function(){
                     var album_html = "<li class='album_li'>";
                     album_html += "<img src="+this.image[2]['#text']+"><div class='album_wrap'>";
                     album_html += "<b>"+this.artist+"</b><br>"+this.name+"";
-                    album_html += "<input type='hidden' class='hid_artist' value='"+this.artist+"' />"
-                    album_html += "<input type='hidden' class='hid_album' value='"+this.name+"' />"
+                    album_html += '<input type="hidden" class="hid_artist" value="'+this.artist+'" />'
+                    album_html += '<input type="hidden" class="hid_album" value="'+this.name+'" />'
                     album_html += "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"
                     album_html += "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"
                     album_html += "<a href='#'>+</a>";
@@ -92,6 +92,7 @@ $('#search_results').on("click", ".album_li .album_wrap a", function(){
         data: {artist: var_art, album: var_alb, mbid: var_mbi, img_url: var_img },
         url: '../album/create',
         success: function(){
+            console.log(var_alb);
             console.log('POST SUCCESS');
             var is_duplicate = false;
             $('#user_shelf .album_li .album_wrap').each(function() {
@@ -122,6 +123,8 @@ $('#user_shelf').on("click", ".album_li .album_wrap a", function(){
         }
     });
 });
+
+
 
 
 /*

@@ -4,7 +4,7 @@
 <hr>
 <h3>Add a new Album</h3>
 <b>Artist:</b> <input type="text" id="artist_search_text">
-or <b>Album:</b> <input type="text" id="album_search_text">
+and/or <b>Album:</b> <input type="text" id="album_search_text">
 <select id="edit_limit">
   <option value="5">5 Results</option>
   <option value="10">10 Results</option>
@@ -26,10 +26,12 @@ or <b>Album:</b> <input type="text" id="album_search_text">
           <b><%= album.artist %></b><br>
           <%= album.album_name %>
           <input type="hidden" class="hid_mbid" value="<%= album.mbid %>">
-          <a href="#" class="del_album">-</a>
+          <a href="#del_album" class="del_album">-</a>
         </div>
       </li>
   <% end %>
 </ul>
 
+<footer>
 <b><%= link_to "Back", '/'+current_user.username %></b>
+</footer>
