@@ -10,15 +10,15 @@ var submit_edit_query = function(){
             success: function(rcv_data){
                 $("#search_results").html("");
                 $.each(rcv_data,function(){
-                    var album_html = "<li class='album_li'>";
-                    album_html += "<img src="+this.image[2]['#text']+"><div class='album_wrap'>";
-                    album_html += "<b>"+this.artist+"</b><br>"+this.name+"";
-                    album_html += '<input type="hidden" class="hid_artist" value="'+this.artist+'" />'
-                    album_html += '<input type="hidden" class="hid_album" value="'+this.name+'" />'
-                    album_html += "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"
-                    album_html += "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"
-                    album_html += "<a href='#'>+</a>";
-                    album_html += "</div></li>";
+                    var album_html =
+                        "<li class='album_li'>"+
+                        "<img src="+this.image[2]['#text']+"><div class='album_wrap'>"+
+                        "<b>"+this.artist+"</b><br>"+this.name+
+                        '<input type="hidden" class="hid_artist" value="'+this.artist+'" />'+
+                        '<input type="hidden" class="hid_album" value="'+this.name+'" />'+
+                        "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"+
+                        "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"+
+                        "<a href='#'>+</a></div></li>";
                     $("#search_results").append(album_html);
                 });
                 //console.log(rcv_data);
@@ -32,15 +32,15 @@ var submit_edit_query = function(){
             success: function(rcv_data){
                 $("#search_results").html("");
                 $.each(rcv_data.topalbums.album,function(){
-                    var album_html = "<li class='album_li'>";
-                    album_html += "<img src="+this.image[2]['#text']+"><div class='album_wrap'>";
-                    album_html += "<b>"+this.artist.name+"</b><br>"+this.name+"";
-                    album_html += '<input type="hidden" class="hid_artist" value="'+this.artist.name+'" />'
-                    album_html += '<input type="hidden" class="hid_album" value="'+this.name+'" />'
-                    album_html += "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"
-                    album_html += "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"
-                    album_html += "<a href='#'>+</a>";
-                    album_html += "</div></li>";
+                    var album_html =
+                        "<li class='album_li'>"+
+                        "<img src="+this.image[2]['#text']+"><div class='album_wrap'>"+
+                        "<b>"+this.artist.name+"</b><br>"+this.name+
+                        '<input type="hidden" class="hid_artist" value="'+this.artist.name+'" />'+
+                        '<input type="hidden" class="hid_album" value="'+this.name+'" />'+
+                        "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"+
+                        "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"+
+                        "<a href='#'>+</a></div></li>";
                     $("#search_results").append(album_html);
                 });
                 //console.log(rcv_data.topalbums.album);
@@ -54,15 +54,15 @@ var submit_edit_query = function(){
             success: function(rcv_data){
                 $("#search_results").html("");
                 $.each(rcv_data.results.albummatches.album,function(){
-                    var album_html = "<li class='album_li'>";
-                    album_html += "<img src="+this.image[2]['#text']+"><div class='album_wrap'>";
-                    album_html += "<b>"+this.artist+"</b><br>"+this.name+"";
-                    album_html += '<input type="hidden" class="hid_artist" value="'+this.artist+'" />'
-                    album_html += '<input type="hidden" class="hid_album" value="'+this.name+'" />'
-                    album_html += "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"
-                    album_html += "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"
-                    album_html += "<a href='#'>+</a>";
-                    album_html += "</div></li>";
+                    var album_html =
+                        "<li class='album_li'>"+
+                        "<img src="+this.image[2]['#text']+"><div class='album_wrap'>"+
+                        "<b>"+this.artist+"</b><br>"+this.name+
+                        '<input type="hidden" class="hid_artist" value="'+this.artist+'" />'+
+                        '<input type="hidden" class="hid_album" value="'+this.name+'" />'+
+                        "<input type='hidden' class='hid_mbid' value='"+this.mbid+"' />"+
+                        "<input type='hidden' class='hid_img_url' value='"+this.image[2]['#text']+"' />"+
+                        "<a href='#'>+</a></div></li>";
                     $("#search_results").append(album_html);
                 });
                 //console.log(rcv_data.results.albummatches.album);
@@ -129,27 +129,5 @@ $('#user_shelf').on("click", ".album_li .album_wrap a", function(){
     });
 });
 
-
-
-
-/*
-$('#test_btn').click(function() {
-    $.ajax({
-        type: 'POST',
-        data: {artist: "Muse", album: "New Born", mbid:"6182465b-b26e-4852-9f2e-0ddbf471e482", img_url:"http://userserve-ak.last.fm/serve/126/81330139.png" },
-        url: '../album/create',
-        success: function(){ console.log('post');}
-    });
-});
-
-$('#del_btn').click(function() {
-    $.ajax({
-        type: 'DELETE',
-        data: {mbid:"6182465b-b26e-4852-9f2e-0ddbf471e482"},
-        url: '../album/destroy',
-        success: function(){ console.log('del');}
-    });
-});
-*/
 
 });
