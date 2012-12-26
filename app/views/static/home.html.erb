@@ -3,6 +3,7 @@
 <div id="home_page_hs">
   <h1>SHELV</h1>
   <h3>Your Online Album Collection</h3>
+  <div id="powered"> music library powered by <a href="http://last.fm/">last.fm</a></div>
 </div>
 
 <% if @random_album != nil %>
@@ -22,4 +23,7 @@
 <% else %>
     <b><%= link_to "Sign Up", new_user_registration_path %> Now !</b>
 <% end %>
+
+<br>
+
 
